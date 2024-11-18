@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_cv_mobile_app/screens/New/marksheet_screen.dart';
 import 'package:my_cv_mobile_app/screens/New/new_screen.dart';
 import 'package:my_cv_mobile_app/screens/about/about_me_screen.dart';
+import 'package:my_cv_mobile_app/screens/api/api_screen.dart';
+import 'package:my_cv_mobile_app/screens/forms/login_screen.dart';
 import 'package:my_cv_mobile_app/screens/grid/grid_screen.dart';
 import 'package:my_cv_mobile_app/screens/registration_form/register_screen.dart';
 
@@ -143,6 +146,51 @@ class _HomeScreenState extends State<HomeScreen> {
                                         );
                                       },
                                       child: Text("New page"),
+                                    ),
+                                    SizedBox(width: 10),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => ApiScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text("Api"),
+                                    ),
+                                    SizedBox(width: 10),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text("login"),
+                                    ),
+                                    SizedBox(width: 10),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                MarksheetScreen(
+                                              student: Student(
+                                                schoolName:
+                                                    'Bal Mandir Secondary School',
+                                                studentName: 'Anjali Shah',
+                                                className: '10',
+                                                rollNumber: '5',
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: Text("Marksheet"),
                                     ),
                                   ],
                                 ),
