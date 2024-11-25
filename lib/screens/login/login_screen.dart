@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:my_cv_mobile_app/models/login/login_response_model.dart';
-import 'package:my_cv_mobile_app/widgets/common_dialog.dart';
+import 'package:my_cv_mobile_app/screens/main_screen.dart';
+import 'package:my_cv_mobile_app/storage/shared_preference.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+import '../../widgets/common_dialog.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,22 +22,33 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  get SharedPreference => null;
+
   void login() async {
     try {
       CommonDialog().loading(
         context,
       );
-      var response = await http
-          .post(Uri.parse("https://api.pslinked.com/login"), body: {
-        "email": emailController.text.trim(),
-        "password": passwordController.text.trim()
-      });
 
+      var response =
+          await http.post(Uri.parse("https://api.pslinked.com/login"), body: {
+        "email": emailController.text.trim(),
+        "password": passwordController.text.trim(),
+      });
+      print("i am here ${response.body}");
       var decodedJson = loginResponseModelFromJson(response.body);
       Navigator.pop(context);
 
       if (response.statusCode == 200) {
-        CommonDialog().success(context, decodedJson.message.toString());
+        // CommonDialog().success(context, decodedJson.message.toString());
+        // CommonDialog().success(context, decodedJson.message.toString());
+        SharedPreferenceStorage.setToken(decodedJson.token.toString());
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MainScreen(),
+          ),
+        );
       } else {
         CommonDialog().error(context, decodedJson.message.toString());
       }

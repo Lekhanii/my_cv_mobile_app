@@ -24,4 +24,6 @@ class TodoResponseModel {
         title: json["title"],
         completed: json["completed"],
       );
+
+  get body => null;
 }

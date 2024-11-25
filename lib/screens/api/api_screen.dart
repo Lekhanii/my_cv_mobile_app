@@ -11,14 +11,18 @@ class ApiScreen extends StatefulWidget {
 }
 
 class _ApiscreenState extends State<ApiScreen> {
-  bool isLoading = true;
-  List<TodoResponseModel>? data;
-
   @override
   void initState() {
     getTodo();
     super.initState();
   }
+
+  //get
+  //post
+  //delete
+  //put ra patch
+  bool isLoading = true;
+  List<TodoResponseModel>? data;
 
   void getTodo() async {
     try {
@@ -33,6 +37,8 @@ class _ApiscreenState extends State<ApiScreen> {
           data = todoResponseModelFromJson(response.body);
           isLoading = false;
         });
+      } else {
+        if (response.statusCode == 401) {}
       }
     } catch (e) {
       print(e.toString());

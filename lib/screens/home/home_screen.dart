@@ -3,9 +3,13 @@ import 'package:my_cv_mobile_app/screens/New/marksheet_screen.dart';
 import 'package:my_cv_mobile_app/screens/New/new_screen.dart';
 import 'package:my_cv_mobile_app/screens/about/about_me_screen.dart';
 import 'package:my_cv_mobile_app/screens/api/api_screen.dart';
-import 'package:my_cv_mobile_app/screens/forms/login_screen.dart';
+import 'package:my_cv_mobile_app/screens/calc/calc_screen.dart';
+import 'package:my_cv_mobile_app/screens/login/login_screen.dart';
 import 'package:my_cv_mobile_app/screens/grid/grid_screen.dart';
 import 'package:my_cv_mobile_app/screens/registration_form/register_screen.dart';
+import 'package:my_cv_mobile_app/screens/tapping/tapping_screen.dart';
+
+import '../state_management/state_mgmt_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Text(
                   "Professors Profiles",
@@ -32,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const Spacer(),
                 ElevatedButton(
                   onPressed: () {
                     print("Searching");
@@ -43,56 +48,59 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.all(0),
-                        elevation: 0,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AboutMeScreen(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        width: double.infinity,
-                        height: 300,
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-                              child: Image.asset(
-                                'assets/images/mypic.jpg',
-                                width: 100,
-                                height: 100,
-                              ),
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(0),
+                      elevation: 0,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AboutMeScreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      width: double.infinity,
+                      height: 300,
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.asset(
+                              'assets/images/mypic.jpg',
+                              width: 100,
+                              height: 100,
                             ),
-                            SizedBox(width: 10),
-                            Column(
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Asst. Prof Er.Rajesh Kamar",
+                                const Text(
+                                  "Asst. Prof Er. Rajesh Kamar",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15,
                                   ),
                                 ),
-                                Text("Artificial Intelligence",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w200,
-                                      fontSize: 15,
-                                      color: Colors.grey,
-                                    )),
-                                SizedBox(height: 10),
-                                Row(
+                                const Text(
+                                  "Artificial Intelligence",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w200,
+                                    fontSize: 15,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                const Row(
                                   children: [
                                     Icon(
                                       Icons.location_on_outlined,
@@ -101,15 +109,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Text("Pokhara, Nepal"),
                                   ],
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 ElevatedButton.icon(
                                   onPressed: () {},
-                                  label: Text("Booked Now"),
-                                  icon: Icon(Icons.book_rounded),
+                                  label: const Text("Book Now"),
+                                  icon: const Icon(Icons.book_rounded),
                                 ),
-                                SizedBox(height: 10),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                                const SizedBox(height: 10),
+                                Wrap(
+                                  spacing: 10, // Horizontal spacing
+                                  runSpacing: 10, // Vertical spacing
                                   children: [
                                     ElevatedButton(
                                       onPressed: () {
@@ -117,61 +126,60 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                RegisterScreen(),
+                                                const RegisterScreen(),
                                           ),
                                         );
                                       },
-                                      child: Text("Register"),
+                                      child: const Text("Register"),
                                     ),
-                                    SizedBox(width: 10),
                                     ElevatedButton(
                                       onPressed: () {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => GridScreen(),
+                                            builder: (context) =>
+                                                const GridScreen(),
                                           ),
                                         );
                                       },
-                                      child: Text("Grid"),
+                                      child: const Text("Grid"),
                                     ),
-                                    SizedBox(width: 10),
                                     ElevatedButton(
                                       onPressed: () {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => NewScreen(),
+                                            builder: (context) =>
+                                                const NewScreen(),
                                           ),
                                         );
                                       },
-                                      child: Text("New page"),
+                                      child: const Text("New Page"),
                                     ),
-                                    SizedBox(width: 10),
                                     ElevatedButton(
                                       onPressed: () {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => ApiScreen(),
+                                            builder: (context) =>
+                                                const ApiScreen(),
                                           ),
                                         );
                                       },
-                                      child: Text("Api"),
+                                      child: const Text("API"),
                                     ),
-                                    SizedBox(width: 10),
                                     ElevatedButton(
                                       onPressed: () {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => LoginScreen(),
+                                            builder: (context) =>
+                                                const LoginScreen(),
                                           ),
                                         );
                                       },
-                                      child: Text("login"),
+                                      child: const Text("Login"),
                                     ),
-                                    SizedBox(width: 10),
                                     ElevatedButton(
                                       onPressed: () {
                                         Navigator.push(
@@ -192,43 +200,63 @@ class _HomeScreenState extends State<HomeScreen> {
                                       },
                                       child: Text("Marksheet"),
                                     ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                StateMgmtScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text(
+                                          "State Management with GetX"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const TappingScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Tapping Screen"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const CalcScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("calculator"),
+                                    ),
                                   ],
                                 ),
                               ],
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: Colors.grey, width: 1),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.grey, width: 1),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                  );
-                }),
+                  ),
+                );
+              },
+            ),
           )
         ],
       ),
     );
   }
 }
-
-// class AboutScreen extends StatelessWidget {
-//   const AboutScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("About Professor"),
-//       ),
-//       body: Center(
-//         child: Text(
-//           "Details about the professor will be displayed here.",
-//           style: TextStyle(fontSize: 18),
-//         ),
-//       ),
-//     );
-//   }
-// }
