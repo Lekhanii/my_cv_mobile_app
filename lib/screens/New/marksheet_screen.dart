@@ -85,7 +85,7 @@ class MarksheetScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Rank: 1', style: TextStyle(fontSize: 16)),
@@ -95,7 +95,7 @@ class MarksheetScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SignatureBox(label: "Class Teacher"),
@@ -128,10 +128,10 @@ class SignatureBox extends StatelessWidget {
             border: Border.all(color: Colors.black, width: 1),
           ),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Text(
           label,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ],
     );

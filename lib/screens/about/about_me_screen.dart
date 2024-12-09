@@ -166,7 +166,7 @@ class _AboutMeScreenState extends State<AboutMeScreen> {
                       ),
                     ),
                     const SizedBox(height: 5),
-                    Text(
+                    const Text(
                       "Emanuel",
                       style:
                           TextStyle(fontSize: 10, fontWeight: FontWeight.bold),

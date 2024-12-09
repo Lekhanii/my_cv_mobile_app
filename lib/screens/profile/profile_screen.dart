@@ -15,9 +15,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         title: const Text('Profile'),
       ),
       body: Container(
-        child: ListView(padding: const EdgeInsets.all(8), children: [
+        child: ListView(padding: const EdgeInsets.all(8), children: const [
           ListTile(
-            title: Text(
+            title:  Text(
               'Account Center',
               style: TextStyle(fontSize: 20),
             ),

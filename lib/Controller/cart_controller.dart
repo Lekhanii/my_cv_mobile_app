@@ -9,6 +9,7 @@ class CartController extends GetxController {
       return;
     }
     carts.add(cart);
+    print("Item added to cart: ${cart.id}");
     update();
   }
 

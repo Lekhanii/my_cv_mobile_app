@@ -89,13 +89,13 @@ class _NewScreenState extends State<NewScreen> {
                       onPressed: () {
                         print("Menu");
                       },
-                      icon: Icon(Icons.menu),
+                      icon:  const Icon(Icons.menu),
                     ),
                     IconButton(
                       onPressed: () {
                         print("setting");
                       },
-                      icon: Icon(Icons.settings),
+                      icon:  const Icon(Icons.settings),
                     )
                   ],
                 ),

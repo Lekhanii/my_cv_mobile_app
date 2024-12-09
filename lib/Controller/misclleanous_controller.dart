@@ -14,17 +14,13 @@ class MisclleanousController extends GetxController {
     'Cherry',
   ];
 
-  List<String> selectedfruits = [];
-
   String selectedGender = 'Male';
-
   void selectGender(String value) {
     selectedGender = value;
     update();
   }
 
-  void changeFavourite() {}
-
+  List<String> selectedfruits = [];
   void changefruit(String value) {
     if (selectedfruits.contains(value)) {
       selectedfruits.remove(value);
@@ -34,7 +30,30 @@ class MisclleanousController extends GetxController {
     update();
   }
 
-  void switchValue(bool value) {}
+  bool isdarkmode = false;
+  bool islightmode = true;
+  void toggleSwitch(bool value) {
+    {
+      if (value) {
+        isdarkmode = true;
+        islightmode = false;
+      } else {
+        isdarkmode = false;
+        islightmode = false;
+      }
+    }
+    update();
+  }
 
-  selectedFruits() {}
+  bool isFavoriteSelected = false;
+  bool isStarSelected = true;
+  void toggleFavourite() {
+    isFavoriteSelected = !isFavoriteSelected;
+    update();
+  }
+
+  void toggleStar() {
+    isStarSelected = !isStarSelected;
+    update();
+  }
 }

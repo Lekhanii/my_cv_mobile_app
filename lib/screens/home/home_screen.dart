@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:my_cv_mobile_app/screens/New/marksheet_screen.dart';
 import 'package:my_cv_mobile_app/screens/New/new_screen.dart';
 import 'package:my_cv_mobile_app/screens/about/about_me_screen.dart';
+import 'package:my_cv_mobile_app/screens/animation/animation_screen.dart';
 import 'package:my_cv_mobile_app/screens/api/api_screen.dart';
+import 'package:my_cv_mobile_app/screens/background_image/background_image_screen';
 import 'package:my_cv_mobile_app/screens/calc/calc_screen.dart';
+import 'package:my_cv_mobile_app/screens/course/course_screen.dart';
+import 'package:my_cv_mobile_app/screens/morphism/glassmorphism_screen.dart';
+import 'package:my_cv_mobile_app/screens/morphism/neumorphism_screen.dart';
+import 'package:my_cv_mobile_app/screens/order/order_app_screen.dart.dart';
 import 'package:my_cv_mobile_app/screens/login/login_screen.dart';
 import 'package:my_cv_mobile_app/screens/grid/grid_screen.dart';
+import 'package:my_cv_mobile_app/screens/misclleanous/misclleanous_screen.dart';
+import 'package:my_cv_mobile_app/screens/page_builder/page_builder_screen%20.dart';
 import 'package:my_cv_mobile_app/screens/registration_form/register_screen.dart';
+import 'package:my_cv_mobile_app/screens/tabbar/tabbar_screen.dart';
 import 'package:my_cv_mobile_app/screens/tapping/tapping_screen.dart';
+import 'package:my_cv_mobile_app/screens/url_launcher/url_launcher_screen.dart';
 
 import '../state_management/state_mgmt_screen.dart';
 
@@ -68,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       width: double.infinity,
-                      height: 300,
+                      height: 500,
                       child: Row(
                         children: [
                           ClipRRect(
@@ -198,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                         );
                                       },
-                                      child: Text("Marksheet"),
+                                      child: const Text("Marksheet"),
                                     ),
                                     ElevatedButton(
                                       onPressed: () {
@@ -206,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                StateMgmtScreen(),
+                                                const StateMgmtScreen(),
                                           ),
                                         );
                                       },
@@ -235,7 +245,126 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                         );
                                       },
-                                      child: const Text("calculator"),
+                                      child: const Text("Calculator"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const MisclleanousScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Misclleanous"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const AnimationScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Animation"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const TabbarScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Tabbar"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const PageBuilderScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Pagebuilder"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const CourseDesignScreen()),
+                                        );
+                                      },
+                                      child: const Text("Courses"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const OrderAppScreen()),
+                                        );
+                                      },
+                                      child: const Text("Food"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const BackgroundImageScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Background Image"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const UrlLauncherScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Urlscreen"),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const NeumorphismScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("Neumorphic button "),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const GlassmorphismScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child:
+                                          const Text("GlassMorphism button "),
                                     ),
                                   ],
                                 ),

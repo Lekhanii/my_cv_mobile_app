@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:my_cv_mobile_app/controller/cart_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../Controller/cart_controller.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -35,7 +37,8 @@ class CartScreen extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
                       isThreeLine: true,
-                      title: Text(cart.carts[index].data.title ?? ''),
+                      title:
+                          Text(cart.carts[index].data.title ?? 'Unknown Item'),
                       leading: CachedNetworkImage(
                         imageUrl: cart.carts[index].data.images?[0] ?? '',
                         placeholder: (context, url) =>

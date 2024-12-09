@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_cv_mobile_app/Controller/misclleanous_controller.dart';
 
-class MisclleanousScreen extends StatelessWidget {
+class MisclleanousScreen extends StatefulWidget {
   const MisclleanousScreen({super.key});
 
+  @override
+  State<MisclleanousScreen> createState() => _MisclleanousScreenState();
+}
+
+class _MisclleanousScreenState extends State<MisclleanousScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +24,7 @@ class MisclleanousScreen extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: Text(
                 "Gender",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
 
@@ -38,7 +43,13 @@ class MisclleanousScreen extends StatelessWidget {
 
             //checkbox
 
-            Text("Fruits"),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                "Fruits",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
             ListView.builder(
               shrinkWrap: true,
               itemCount: misc.fruits.length,
@@ -54,7 +65,54 @@ class MisclleanousScreen extends StatelessWidget {
             ),
 
             //switch
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text("Switch",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            ),
+            SwitchListTile(
+              title: const Text(" Mode"),
+              value: misc.isdarkmode,
+              onChanged: (value) {
+                misc.toggleSwitch(value);
+              },
+              activeColor: Colors.green,
+              inactiveThumbColor: Colors.grey,
+              inactiveTrackColor: Colors.black26,
+            ),
+
             //favourite
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Favourite',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            GestureDetector(
+              onTap: misc.toggleFavourite,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  misc.isFavoriteSelected
+                      ? Icons.favorite
+                      : Icons.favorite_border,
+                  size: 50.0,
+                  color: misc.isFavoriteSelected ? Colors.red : Colors.grey,
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: misc.toggleStar,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  misc.isStarSelected ? Icons.star : Icons.star_border,
+                  size: 50.0,
+                  color: misc.isStarSelected ? Colors.yellow : Colors.grey,
+                ),
+              ),
+            ),
           ],
         );
       }),
